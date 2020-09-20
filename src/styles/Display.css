@@ -1,0 +1,7 @@
+#display {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  color: white;
+}

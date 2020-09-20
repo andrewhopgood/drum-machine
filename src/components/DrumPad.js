@@ -1,47 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
+import DrumPadButton from "./DrumPadButton";
+import "../styles/DrumPad.css";
 
-export default function DrumPad({ padName, audioClipUrl, id, keyCode }) {
-  const soundRef = useRef(null);
-
-  const play = () => {
-    soundRef.current.play();
-  };
-
-  const handleClick = (e) => {
-    play();
-  };
-
-  const handleKeyPressed = (e) => {
-    // console.log(e.keyCode);
-    // console.log(`${keyCode}: ${e.keyCode == keyCode}`);
-    if (e.keyCode == keyCode) {
-      play();
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPressed);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPressed);
-    };
-  }, []);
-
+export default function DrumPad({ data, setPadName }) {
   return (
-    <>
-      <button
-        onClick={handleClick}
-        onKeyDown={handleKeyPressed}
-        className="drum-pad"
-        id={id}
-      >
-        <audio
-          ref={soundRef}
-          src={audioClipUrl}
-          className="clip"
-          id={id}
-        ></audio>
-        {padName}
-      </button>
-    </>
+    <div id="drum__pad">
+      {data.map((data) => (
+        <DrumPadButton data={data} key={data.id} setPadName={setPadName} />
+      ))}
+    </div>
   );
 }

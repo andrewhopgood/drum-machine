@@ -1,17 +1,12 @@
 import React from "react";
-import DrumPad from "./DrumPad";
+import "../styles/Display.css";
 
-export default function Display({ data }) {
+function Display({ padName }) {
   return (
     <div id="display">
-      {data.map((button) => (
-        <DrumPad
-          padName={button.id}
-          audioClipUrl={button.url}
-          id={button.id}
-          keyCode={button.keyCode}
-        />
-      ))}
+      <h1>{padName}</h1>
     </div>
   );
 }
+
+export default Display;
