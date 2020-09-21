@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import "../styles/DrumPadButton.css";
 
 export default function DrumPadButton({ data, setPadName }) {
@@ -14,13 +14,11 @@ export default function DrumPadButton({ data, setPadName }) {
 
   const handleClick = (e) => {
     setPadName(data.audioClipName);
-    load();
     play();
   };
 
   const handleKeyPressed = (e) => {
     if (e.keyCode === data.keyCode) {
-      load();
       play();
     }
   };
