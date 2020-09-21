@@ -5,11 +5,8 @@ export default function DrumPadButton({ data, setPadName }) {
   const soundRef = useRef(null);
 
   const play = () => {
-    soundRef.current.play();
-  };
-
-  const load = () => {
     soundRef.current.load();
+    soundRef.current.play();
   };
 
   const handleClick = (e) => {
@@ -19,6 +16,7 @@ export default function DrumPadButton({ data, setPadName }) {
 
   const handleKeyPressed = (e) => {
     if (e.keyCode === data.keyCode) {
+      setPadName(data.audioClipName);
       play();
     }
   };

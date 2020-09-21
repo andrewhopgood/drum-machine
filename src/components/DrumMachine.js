@@ -6,7 +6,7 @@ import "../styles/DrumMachine.css";
 export default function DrumMachine({ data }) {
   // responbility: create DrumPads and lay them with a Display layout componentnt
 
-  const [padName, setPadName] = useState("hi");
+  const [padName, setPadName] = useState();
   return (
     <div id="drum-machine">
       <DrumPad data={data} setPadName={setPadName} />
